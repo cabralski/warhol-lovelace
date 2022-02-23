@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Gerador Warhol-Lovelace (UFC-Russas)</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+	
+	<link rel="stylesheet" href="./src/style.css">
+	<link rel="stylesheet" href="./src/button.css">
+
+</head>
+<body>
+	
+	<div id="container">
+
+		<svg id="generated-svg" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="0 0 512 512">
+			<g>
+				<path id="logo-circle" fill="#37ABC4" d="M 511.816406 256 C 511.816406 397.277344 397.289062 511.804688 256.011719 511.804688 C 114.734375 511.804688 0.207031 397.277344 0.207031 256 C 0.207031 114.722656 114.734375 0.195312 256.011719 0.195312 C 397.289062 0.195312 511.816406 114.722656 511.816406 256 Z M 511.816406 256 "/>
+
+				<path id="logo-outer" fill="#FFFFFF" d="M 408.441406 144.15625 L 408.441406 113.5 L 109.359375 113.5 L 109.359375 362.875 L 408.441406 362.875 L 408.441406 332.21875 L 140.011719 332.21875 L 140.011719 144.15625 Z M 408.441406 144.15625 "/>
+				<path id="logo-inner" fill="#FFFFFF" d="M 364.53125 170.667969 L 170.667969 170.667969 L 170.667969 304.878906 L 364.53125 304.878906 L 364.53125 274.226562 L 201.320312 274.226562 L 201.320312 201.320312 L 364.53125 201.320312 Z M 364.53125 170.667969 "/>
+				
+				<path id="logo-neck" fill="#FFFFFF" d="M 214.574219 371.988281 L 303.222656 371.988281 L 303.222656 404.296875 L 214.574219 404.296875 Z M 214.574219 371.988281 "/>
+				<path id="logo-base" fill="#FFFFFF" d="M 332.21875 411.753906 L 332.21875 428.324219 L 185.578125 428.324219 L 185.578125 411.753906 Z M 332.21875 411.753906 "/>
+			</g>
+		</svg>
+
+		<div class="inputs">
+
+			<label>Cor Primária:</label>
+			<input id="primary-color" type="color" value="#37ABC4" />
+
+			<label>Cor Secundária:</label>
+			<input id="secondary-color" type="color" value="#FFFFFF" />
+
+		</div>
+
+		<div class="downloads">
+
+			<a id="download-button" class="button">Download (SVG)</a>
+			<a class="button" href="https://svgtopng.com/pt/">SVG → PNG</a>
+
+		</div>
+
+	</div>
+
+	<script>
+
+		'use strict';
+
+		const generated_svg = document.getElementById('generated-svg');
+
+		const [svg_outer, svg_inner, svg_neck, svg_base, svg_circle] = [
+			document.getElementById('logo-outer'),
+			document.getElementById('logo-inner'),
+			document.getElementById('logo-neck'),
+			document.getElementById('logo-base'),
+			document.getElementById('logo-circle')
+		];
+
+		const [primary_color, secondary_color] = [
+			document.getElementById('primary-color'),
+			document.getElementById('secondary-color')
+		];
+
+		const download_button = document.getElementById('download-button');
+
+		const update_download = () => {
+			let serializer = new XMLSerializer();
+			let source = serializer.serializeToString(generated_svg);
+			download_button.href = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(source)}`
+			download_button.download = `CC_${primary_color.value.replace("#", "").toUpperCase()}_${secondary_color.value.replace("#", "").toUpperCase()}.svg`
+		}
+
+		primary_color.addEventListener('change', e => {
+			svg_circle.style.fill = primary_color.value;
+
+			update_download();
+		});
+
+		secondary_color.addEventListener('change', e => {
+			svg_outer.style.fill = secondary_color.value;
+			svg_inner.style.fill = secondary_color.value;
+			svg_neck.style.fill = secondary_color.value;
+			svg_base.style.fill = secondary_color.value;
+
+			update_download();
+		});
+
+		update_download();
+
+	</script>
+
+</body>
+</html>
