@@ -1,0 +1,1 @@
+<center><img src="./src/cc_warhol.png"/></center>

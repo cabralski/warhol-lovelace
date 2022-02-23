@@ -14,13 +14,13 @@
 	<meta property="og:url" content="https://cabralski.github.io/warhol-lovelace/">
 	<meta property="og:title" content="Gerador Warhol-Lovelace">
 	<meta property="og:description" content="Gerador de logos para o curso de Ciência da Computação da UFC Russas.">
-	<meta property="og:image" content="./src/cc_warhol.png">
+	<meta property="og:image" content="https://cabralski.github.io/warhol-lovelace/src/cc_warhol.png">
 
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://cabralski.github.io/warhol-lovelace/">
 	<meta property="twitter:title" content="Gerador Warhol-Lovelace">
 	<meta property="twitter:description" content="Gerador de logos para o curso de Ciência da Computação da UFC Russas.">
-	<meta property="twitter:image" content="./src/cc_warhol.png">
+	<meta property="twitter:image" content="https://cabralski.github.io/warhol-lovelace/src/cc_warhol.png">
 
 	<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
 	
@@ -32,42 +32,42 @@
 	
 	<div id="container">
 
-		<svg id="generated-svg" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="0 0 512 512">
+		<svg id="generated-svg" xmlns="http://www.w3.org/2000/svg" width="512px" height="512px" viewBox="0 0 2048 2048">
 			<g>
-				<path id="logo-circle" fill="#37ABC4" d="M 511.816406 256 C 511.816406 397.277344 397.289062 511.804688 256.011719 511.804688 C 114.734375 511.804688 0.207031 397.277344 0.207031 256 C 0.207031 114.722656 114.734375 0.195312 256.011719 0.195312 C 397.289062 0.195312 511.816406 114.722656 511.816406 256 Z M 511.816406 256 "/>
-
-				<path id="logo-outer" fill="#FFFFFF" d="M 408.441406 144.15625 L 408.441406 113.5 L 109.359375 113.5 L 109.359375 362.875 L 408.441406 362.875 L 408.441406 332.21875 L 140.011719 332.21875 L 140.011719 144.15625 Z M 408.441406 144.15625 "/>
-				<path id="logo-inner" fill="#FFFFFF" d="M 364.53125 170.667969 L 170.667969 170.667969 L 170.667969 304.878906 L 364.53125 304.878906 L 364.53125 274.226562 L 201.320312 274.226562 L 201.320312 201.320312 L 364.53125 201.320312 Z M 364.53125 170.667969 "/>
-				
-				<path id="logo-neck" fill="#FFFFFF" d="M 214.574219 371.988281 L 303.222656 371.988281 L 303.222656 404.296875 L 214.574219 404.296875 Z M 214.574219 371.988281 "/>
-				<path id="logo-base" fill="#FFFFFF" d="M 332.21875 411.753906 L 332.21875 428.324219 L 185.578125 428.324219 L 185.578125 411.753906 Z M 332.21875 411.753906 "/>
+				<path id="logo-circle" stroke="none" fill="#37ABC4" d="M 2047.265625 1024 C 2047.265625 1589.109375 1589.15625 2047.21875 1024.046875 2047.21875 C 458.9375 2047.21875 0.828125 1589.109375 0.828125 1024 C 0.828125 458.890625 458.9375 0.78125 1024.046875 0.78125 C 1589.15625 0.78125 2047.265625 458.890625 2047.265625 1024 Z M 2047.265625 1024 "/>
+				<path id="logo-outer" stroke="none" fill="#FFFFFF" d="M 1633.765625 576.625 L 1633.765625 454 L 437.4375 454 L 437.4375 1451.5 L 1633.765625 1451.5 L 1633.765625 1328.875 L 560.046875 1328.875 L 560.046875 576.625 Z M 1633.765625 576.625 "/>
+				<path id="logo-inner" stroke="none" fill="#FFFFFF" d="M 1458.125 682.671875 L 682.671875 682.671875 L 682.671875 1219.515625 L 1458.125 1219.515625 L 1458.125 1096.90625 L 805.28125 1096.90625 L 805.28125 805.28125 L 1458.125 805.28125 Z M 1458.125 682.671875 "/>
+				<path id="logo-neck" stroke="none" fill="#FFFFFF" d="M 858.296875 1487.953125 L 1212.890625 1487.953125 L 1212.890625 1617.1875 L 858.296875 1617.1875 Z M 858.296875 1487.953125 "/>
+				<path id="logo-base" stroke="none" fill="#FFFFFF" d="M 1328.875 1647.015625 L 1328.875 1713.296875 L 742.3125 1713.296875 L 742.3125 1647.015625 Z M 1328.875 1647.015625 "/>
 			</g>
-		</svg>
+		</svg>		
 
 		<div class="inputs">
 
-			<label>Cor Primária:</label>
 			<input id="primary-color" type="color" value="#37ABC4" />
-
-			<label>Cor Secundária:</label>
 			<input id="secondary-color" type="color" value="#FFFFFF" />
 
 		</div>
 
 		<div class="downloads">
 
-			<a id="download-button" class="button">Download (SVG)</a>
-			<a class="button" href="https://svgtopng.com/pt/">SVG → PNG</a>
+			<a id="download-button-svg" class="button">Download (SVG)</a>
+			<a id="download-button-png" class="button">Download (PNG)</a>
 
 		</div>
 
 	</div>
+
+	<canvas id="canvas-svg" style="display: none;" width="2048" height="2048"></canvas>
+
+	<script src="https://unpkg.com/canvg@3.0.1/lib/umd.js"></script>
 
 	<script>
 
 		'use strict';
 
 		const generated_svg = document.getElementById('generated-svg');
+		const canvas_svg = document.getElementById('canvas-svg');
 
 		const [svg_outer, svg_inner, svg_neck, svg_base, svg_circle] = [
 			document.getElementById('logo-outer'),
@@ -82,13 +82,22 @@
 			document.getElementById('secondary-color')
 		];
 
-		const download_button = document.getElementById('download-button');
+		const download_button_svg = document.getElementById('download-button-svg');
+		const download_button_png = document.getElementById('download-button-png');
 
 		const update_download = () => {
 			let serializer = new XMLSerializer();
 			let source = serializer.serializeToString(generated_svg);
-			download_button.href = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(source)}`
-			download_button.download = `CC_${primary_color.value.replace("#", "").toUpperCase()}_${secondary_color.value.replace("#", "").toUpperCase()}.svg`
+			let ctx = canvas_svg.getContext('2d');
+			
+			download_button_svg.href = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(source)}`
+			download_button_svg.download = `CC_${primary_color.value.replace("#", "").toUpperCase()}_${secondary_color.value.replace("#", "").toUpperCase()}.svg`
+
+			let svg_to_canvas = canvg.Canvg.fromString(ctx, generated_svg.innerHTML);
+			svg_to_canvas.start();
+
+			download_button_png.href = `${canvas_svg.toDataURL("image/png")}`;
+			download_button_png.download = `CC_${primary_color.value.replace("#", "").toUpperCase()}_${secondary_color.value.replace("#", "").toUpperCase()}.png`
 		}
 
 		primary_color.addEventListener('change', e => {
